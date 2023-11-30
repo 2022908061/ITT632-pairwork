@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Tasty Trail</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: radial-gradient(circle, rgba(185,238,174,1) 0%, rgba(235,233,122,1) 100%);
+    }
+    #welcome-container, #map-container {
+      text-align: center;
+      padding: 20px;
+      background-color: #fff;
+      margin: 20px auto;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      max-width: 600px;
+    }
+    h1 {
+      color: #00796b; /* Greenish color */
+    }
+    p {
+      color: #333;
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #ffa000; /* Orange color */
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #ff8f00; /* Darker shade of orange on hover */
+    }
+    #map-container {
+      display: none;
+    }
+    #map {
+      height: 590px;
+      margin-top: 20px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    #pac-container {
+      margin-top: 20px;
+    }
+    #pac-input {
+      width: 80%;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    #logo {
+      max-width: 80%; /* Adjust the value based on your preference */
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    /* Add the following styles to your existing CSS */
+
+/* Styles for rating stars */
+.rating-stars {
+  display: inline-block;
+  font-size: 20px;
+  color: #FFD700; /* Golden color for stars */
+}
+
+/* Styles for reviews */
+.review-container {
+  margin-top: 20px;
+}
+
+.review {
+  margin-bottom: 15px;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.review-author {
+  font-weight: bold;
+}
+
+
+    /* Mobile Styles */
+    @media screen and (max-width: 600px) {
+      #pac-input {
+        font-size: 14px;
+        padding: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="welcome-container">
+    <img id="logo" src="logo/fork.png" alt="Tasty Trail Logo" style="width:300px;">
+    <h1>Tasty Trail</h1>
+    <p>Explore delicious foods nearby!</p>
+    <button onclick="loadMapPage()">Go to Map</button>
+  </div>
+
+  <div id="map-container">
+    <h1>Tasty Trail</h1>
+    <div id="pac-container">
+      <input id="pac-input" type="text" placeholder="Search for a location">
+    </div>
+    <div id="map"></div>
+    <div id="photo-container"></div>
+    <div id="reviews-container"></div>
+  </div>
+
+  <script>
+    function loadMapPage() {
+      document.getElementById('welcome-container').style.display = 'none';
+      document.getElementById('map-container').style.display = 'block';
+      initMap();
+    }
+
+    function initMap() {
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: -34.397, lng: 150.644},
+        zoom: 14,
+        disableDefaultUI: true, // Hide default UI
+      });
+
+      // Add your map markers, overlays, etc., as needed
+    }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqWB5G6kVpnBnopks0hoCK_ZzWXrJ-KhM&libraries=places&callback=initMap" async defer></script>
+  <script src="script.js"></script>
+</body>
+</html>
